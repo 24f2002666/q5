@@ -1,0 +1,25 @@
+name: Playwright Table Sum (24f2002666@ds.study.iitm.ac.in)
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  scrape-and-sum:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Python dependencies
+        run: |
+          pip install playwright
+          playwright install chromium
+
+      - name: Run sum script (24f2002666@ds.study.iitm.ac.in)
+        run: python action.py
